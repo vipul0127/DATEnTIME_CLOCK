@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+        }
+
+        #time {
+            font-size: 40px;
+            font-weight: bold;
+            color: blue;
+            border: 2px solid blue;
+            padding: 10px 20px;
+            margin: 20px;
+            background-color: #e0f7fa;
+            border-radius: 10px;
+        }
+
+        #date {
+            font-size: 30px;
+            font-weight: bold;
+            color: red;
+            border: 2px solid red;
+            padding: 8px 16px;
+            margin: 20px;
+            background-color: #ffebee;
+            border-radius: 10px;
+        }
+
+        div {
+            margin: 20px 0;
+        }
+
+        span {
+            display: inline-block;
+            min-width: 150px;
+        }
+    </style>
+</head>
+
+<script>
+    let a;
+    let time;
+    let date;
+    setInterval(() => {
+        a = new Date();
+        let b = a.getHours();
+        let c = a.getMinutes();
+        let d = a.getSeconds();
+
+        time = b + ":" + (c < 10 ? '0' + c : c) + ":" + (d < 10 ? '0' + d : d);
+        date = a.toLocaleDateString();
+
+        document.getElementById("time").innerHTML = time;
+        document.getElementById("date").innerHTML = date;
+
+    }, 1000);
+</script>
+
+<body>
+    <h1>
+        This is a clock website that shows date and time
+    </h1>
+    <div>
+        Today's date is: <span id="date"></span>
+    </div>
+    <div>
+        Time is: <span id="time"></span>
+    </div>
+</body>
+
+</html>
